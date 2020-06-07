@@ -1,0 +1,13 @@
+sample = [ 6 , 3, 9, 7, 1 , 5, 4]
+
+sample_length = len(sample) - 1
+
+while True:
+    for i in range(sample_length):
+        if sample[i] > sample[i+1]:
+            sample[i], sample[i+1]= sample[i+1], sample[i]
+    sample_length-= 1
+    if sample_length < 0:
+        break;
+
+print("sorted list is: \t",sample)

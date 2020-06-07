@@ -1,0 +1,8 @@
+list= ["a","b","b"]
+
+
+
+[[x,list.count(x)] for x in set(list)]
+
+
+[['b', 2], ['a', 1]]

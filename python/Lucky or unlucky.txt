@@ -1,0 +1,59 @@
+
+
+Monk just purchased an array 
+A
+A having 
+N
+N integers. Monk is very superstitious. He calls the array 
+A
+A Lucky if the frequency of the minimum element is odd, otherwise he considers it Unlucky. Help Monk in finding out if the array is Lucky or not.
+
+Input:
+First line consists of a single integer 
+T
+T denoting the number of test cases.
+First line of each test case consists of a single integer 
+N
+N denoting the size of array 
+A
+A.
+Second line of each test case consists of 
+N
+N space separated integers denoting the array 
+A
+A.
+
+Output:
+
+
+
+
+
+
+
+# 4 8 3 7
+
+num = input()
+
+
+arr = map(int, raw_input().split())
+
+
+min = arr[0]
+dic = dict()
+counter = 1
+for i,v in enumerate(arr):
+    #import pdb; pdb.set_trace()
+    dic[v] = counter
+    if v in dic:
+        dic[v]+= 1
+    if min > arr[i]:
+        min = arr[i]
+
+print min
+
+print dic[min]
+if dic[min]%2 ==0:
+    print"UNLUCKY"
+else:
+    print"LUCKY"

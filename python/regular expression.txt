@@ -1,0 +1,21 @@
+import re
+
+
+a = 'NISHANT KUMAR'
+
+pattern = 'ANT'
+
+print re.match(pattern,a)
+
+
+found =  re.search(pattern,a)
+
+
+print found
+
+pattern2 = re.compile(pattern)
+
+matches = pattern2.finditer(pattern)
+
+for match in matches:
+    print match

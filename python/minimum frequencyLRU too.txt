@@ -1,0 +1,26 @@
+# 4 8 3 7
+
+num = input()
+
+
+arr = map(int, raw_input().split())
+
+
+min = arr[0]
+dic = dict()
+counter = 1
+for i,v in enumerate(arr):
+    #import pdb; pdb.set_trace()
+    dic[v] = counter
+    if v in dic:
+        dic[v]+= 1
+    if min > arr[i]:
+        min = arr[i]
+
+print min
+
+print dic[min]
+if dic[min]%2 ==0:
+    print"UNLUCKY"
+else:
+    print"LUCKY"

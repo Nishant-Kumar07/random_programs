@@ -80,6 +80,23 @@ class SLinkedList:
             curr = curr.nextval
         return False
 
+    def get_a_node_at_index(self, pos):
+
+        # Need to track the position and if it matches print the value at the node.
+        # Don't need to track the prev node here.
+
+        curr_pos = 0
+        curr = self.headval
+
+        while curr is not None:
+            if curr_pos == pos:
+                print("data value at pos %s is " %pos,  curr.dataval)
+                return True
+            curr_pos+=1
+            curr = curr.nextval
+
+
+
 
 list = SLinkedList()
 list.headval = Node("Mon")
@@ -115,3 +132,8 @@ if response == True:
     list.listprint()
 else:
     print("Invalid input: Out of index")
+
+print("*********\n")
+print("\n*********\n")
+list.get_a_node_at_index(1)
+list.get_a_node_at_index(3)

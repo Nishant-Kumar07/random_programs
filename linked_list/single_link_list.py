@@ -52,6 +52,34 @@ class SLinkedList:
             prev = curr
             curr = curr.nextval
 
+    def delete_node_at_index(self, pos):
+        # pos can be 0
+        ## delete the node and make the next node as head
+        # pos can be in between
+        ## delete the node and link prev and next node for curr node
+        # Keep track of prev and curr node
+
+        # Three basic variables to track my list
+        pos_count =0
+        prev = None
+        curr = self.headval
+
+        # Now start traversing the list
+        while curr is not None:
+            if pos_count == pos:
+                # This means that it is not the first node.
+                if prev:
+                    prev.nextval = curr.nextval
+                    del curr
+                else:
+                    self.headval = curr.nextval
+                    del curr
+                return True
+            pos_count+=1
+            prev = curr
+            curr = curr.nextval
+        return False
+
 
 list = SLinkedList()
 list.headval = Node("Mon")
@@ -80,7 +108,10 @@ print("*********\n")
 list.add_node(1,e5)
 list.listprint()
 
-e6 = Node("Saturday")
+response = list.delete_node_at_index(9)
 print("*********\n")
-list.add_node(9,e6)
-list.listprint()
+
+if response == True:
+    list.listprint()
+else:
+    print("Invalid input: Out of index")

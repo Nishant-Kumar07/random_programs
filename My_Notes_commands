@@ -1,0 +1,6 @@
+Vi editor, Select multiple lines and right indent with spaces:
+Select line- ctrl+v and up down arrow
+"esc + shift + :" ---> This shows at the lower left of screen :'<,'>
+type norm I
+:'<,'> norm I <followed by number of spaces after I then hit enter>
+

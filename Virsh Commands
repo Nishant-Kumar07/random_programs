@@ -1,0 +1,21 @@
+# Edit libvirt managed network and dhcp
+
+virsh net-list
+
+virsh net-edit <name-network>
+
+# Restart service
+
+virsh net-destroy <name>
+virsh net-start <name>
+
+# Show dhcp leases managed by libvirt
+virsh net-dhcp-leases <net-name>
+
+# Create snapshot from a VM
+
+# --domain - name of domain (virsh list --all)
+# --name: name of snapshot
+
+virsh snapshot-create-as --domain directorvm.lab3.phobos.rpc.rackspace.com --name directorvm_revert_snap --description "base snapshot of the director vm"
+

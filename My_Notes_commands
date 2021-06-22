@@ -4,3 +4,8 @@ Select line- ctrl+v and up down arrow
 type norm I
 :'<,'> norm I <followed by number of spaces after I then hit enter>
 
+
+openssl show certs
+
+echo | openssl s_client -showcerts -connect 10.240.0.12:5000 2>/dev/null | openssl x509 -inform pem -noout -text -fingerprint -certopt no_pubkey,no_sigdump,no_aux
+

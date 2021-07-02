@@ -1,0 +1,59 @@
+cat openstack.py 
+import requests
+import json
+
+username = 'datadog'  # fill with actual username
+password = 'datadog'  # fill with actual password
+payload = {
+    "auth": {
+        "identity": {
+            "methods": ["password"],
+            "password": {
+                "user": {
+                    "password": password,
+                    "name": username,
+                    "domain": {"id": "default"}
+                }
+            }
+        },
+        "scope": "unscoped"
+    }
+}
+
+# Openstack way
+try:
+    resp = requests.post(
+            'https://10.240.0.12:5000/v3/auth/tokens',
+            headers={'Content-Type': 'application/json'},
+            data=json.dumps(payload),
+            verify=False,
+            timeout=10
+        )
+    resp.raise_for_status()
+except Exception as e:
+	print(str(e))
+else:
+    print("Connection succesful for openstack way")
+
+
+# Openstack controller way
+try:
+    resp = requests.post(
+            'https://10.240.0.12:5000/v3/auth/tokens',
+            json=payload,
+            verify=False,
+            timeout=10
+        )
+    resp.raise_for_status()
+except Exception as e:
+	print(str(e))
+else:
+    print("Connection succesful for openstack controller way")
+
+root@617578-infra03:~# python openstack.py 
+/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py:860: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+Connection succesful for openstack way
+/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py:860: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+Connection succesful for openstack controller way

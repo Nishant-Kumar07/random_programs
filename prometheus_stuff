@@ -1,0 +1,9 @@
+Prometheus Operator:
+https://sysdig.com/blog/kubernetes-monitoring-prometheus-operator-part3/  
+
+
+To curl prometheus data store which is stored locally:
+
+https://medium.com/@aneeshputtur/export-data-from-prometheus-to-csv-b19689d780aa 
+
+
